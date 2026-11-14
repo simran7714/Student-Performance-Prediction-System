@@ -32,11 +32,11 @@ export default function ReportsTab({
   return (
     <div>
       {/* Report Download Action Card */}
-      <div className="card" style={{ background: 'linear-gradient(to right, #ffffff, #f0fdf4)', borderLeft: '4px solid #10b981' }}>
+      <div className="card" style={{ background: 'linear-gradient(to right, #ffffff, #fff1f2)', borderLeft: '4px solid #f43f5e' }}>
         <div className="card-header">
           <div>
             <div className="card-title">
-              <FileText size={20} color="#059669" /> Academic Report Generation & Exports
+              <FileText size={20} color="#e11d48" /> Academic Report Generation & Exports
             </div>
             <div className="card-subtitle">
               Export formal institutional documentation, compliance audits, and analytical tables
@@ -50,7 +50,7 @@ export default function ReportsTab({
             <a href={getCsvReportUrl()} className="btn btn-outline" download>
               <Download size={16} /> Export CSV
             </a>
-            <a href={getPdfReportUrl()} className="btn btn-primary" style={{ background: '#059669' }} target="_blank" rel="noreferrer">
+            <a href={getPdfReportUrl()} className="btn btn-primary" style={{ background: 'linear-gradient(135deg, #f43f5e, #e11d48)' }} target="_blank" rel="noreferrer">
               <Download size={16} /> Download Academic PDF Report
             </a>
           </div>
@@ -64,14 +64,14 @@ export default function ReportsTab({
       {/* On-Screen Institutional Academic Report Document Preview */}
       <div className="card" style={{ padding: '36px', boxShadow: 'var(--shadow-md)', border: '1px solid #cbd5e1' }}>
         {/* Document Header */}
-        <div style={{ textAlign: 'center', borderBottom: '2px solid #1e3a8a', paddingBottom: '20px', marginBottom: '24px' }}>
-          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '6px' }}>
+        <div style={{ textAlign: 'center', borderBottom: '2px solid #be123c', paddingBottom: '20px', marginBottom: '24px' }}>
+          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#e11d48', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '6px' }}>
             Minor Academic Project in Computer Science and Engineering
           </div>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a', marginBottom: '4px' }}>
+          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#4c0519', marginBottom: '4px' }}>
             Student Performance Prediction System
           </h2>
-          <div style={{ fontSize: '1rem', fontStyle: 'italic', color: '#3b82f6', marginBottom: '12px' }}>
+          <div style={{ fontSize: '1rem', fontStyle: 'italic', color: '#f43f5e', marginBottom: '12px' }}>
             "Analyze Student Performance. Predict Academic Success."
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
@@ -85,17 +85,17 @@ export default function ReportsTab({
 
         {/* Section 1: Executive Overview */}
         <div style={{ marginBottom: '24px' }}>
-          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1e3a8a', marginBottom: '8px' }}>
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#9f1239', marginBottom: '8px' }}>
             1. Executive Summary
           </h3>
-          <p style={{ fontSize: '0.88rem', lineHeight: '1.6', color: '#334155' }}>
+          <p style={{ fontSize: '0.88rem', lineHeight: '1.6', color: '#4c0519' }}>
             This study evaluated {totalStudents} student academic profiles to predict semester academic outcomes and identify vulnerable students prior to final assessments. Machine learning classifiers were trained on normalized features including daily study hours, class attendance percentages, previous exam marks, internal assessments, and homework assignments. The optimal model identified is <strong>{bestModelName}</strong>, achieving a test accuracy of <strong>{bestModelMetrics?.accuracy_percentage}%</strong> and an F1-Score of <strong>{bestModelMetrics?.f1_score_percentage}%</strong>.
           </p>
         </div>
 
         {/* Section 2: Model Benchmark Table */}
         <div style={{ marginBottom: '24px' }}>
-          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1e3a8a', marginBottom: '10px' }}>
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#9f1239', marginBottom: '10px' }}>
             2. Machine Learning Algorithm Comparison
           </h3>
           <div className="table-container">

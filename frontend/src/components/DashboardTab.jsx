@@ -57,10 +57,10 @@ export default function DashboardTab({
         data: targetDist.counts,
         backgroundColor: [
           '#10b981', // Green for Pass/A
-          '#ef4444', // Red for Fail/F
-          '#3b82f6', // Blue for B
+          '#e11d48', // Vivid Rose Red for Fail/F
+          '#f472b6', // Light Pink for B
           '#f59e0b', // Amber for C
-          '#8b5cf6', // Purple for D
+          '#a855f7', // Lavender Purple for D
         ],
         borderWidth: 2,
         borderColor: '#ffffff',
@@ -80,7 +80,7 @@ export default function DashboardTab({
       {
         label: 'Accuracy (%)',
         data: accuracies,
-        backgroundColor: '#3b82f6',
+        backgroundColor: '#f43f5e',
         borderRadius: 6,
       }
     ]
@@ -90,12 +90,12 @@ export default function DashboardTab({
     <div>
       {/* Welcome Banner */}
       <div style={{
-        background: 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%)',
+        background: 'linear-gradient(135deg, #be123c 0%, #e11d48 50%, #f43f5e 100%)',
         borderRadius: 'var(--radius-lg)',
         padding: '28px 32px',
         color: 'white',
         marginBottom: '24px',
-        boxShadow: 'var(--shadow-md)',
+        boxShadow: '0 10px 25px rgba(244, 63, 94, 0.25)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -103,22 +103,22 @@ export default function DashboardTab({
         gap: '16px'
       }}>
         <div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.15)', padding: '4px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 600, marginBottom: '10px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.2)', padding: '4px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 700, marginBottom: '10px' }}>
             <Award size={14} /> Computer Science & Engineering Minor Academic Project
           </div>
           <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '6px' }}>
             Academic Performance Intelligence Dashboard
           </h2>
-          <p style={{ color: '#dbeafe', fontSize: '0.92rem', maxWidth: '650px' }}>
+          <p style={{ color: '#ffe4e6', fontSize: '0.92rem', maxWidth: '650px' }}>
             Harness machine learning algorithms to identify performance bottlenecks, detect vulnerable students early, and prescribe targeted educational interventions.
           </p>
         </div>
 
         <div style={{ display: 'flex', gap: '10px' }}>
-          <button className="btn btn-outline" style={{ background: 'white', color: '#1e3a8a' }} onClick={() => setActiveTab('predict')}>
+          <button className="btn btn-outline" style={{ background: 'white', color: '#be123c', border: 'none' }} onClick={() => setActiveTab('predict')}>
             <Sparkles size={16} /> Predict Student
           </button>
-          <a href={getPdfReportUrl()} className="btn btn-primary" style={{ background: '#059669' }} target="_blank" rel="noreferrer">
+          <a href={getPdfReportUrl()} className="btn btn-primary" style={{ background: '#4c0519', border: 'none' }} target="_blank" rel="noreferrer">
             <Download size={16} /> Academic PDF
           </a>
         </div>
