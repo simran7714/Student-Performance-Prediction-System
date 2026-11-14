@@ -353,5 +353,5 @@ Open your browser and navigate to: **`http://localhost:5173`**
 ## 📜 Academic Declaration
 This project is submitted in partial fulfillment of the requirements for the degree of **Bachelor of Engineering / Technology in Computer Science and Engineering**.
 
-## LIVE PROJECT DEPLOYMENT
-LIVE WEBSU=ITE-https://student-performance-prediction-syst-seven.vercel.app/
+## Live Website Depolyment
+Live Website- https://student-performance-prediction-syst-seven.vercel.app/
