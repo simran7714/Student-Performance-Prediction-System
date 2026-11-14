@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import LandingPage from './components/LandingPage';
 import DashboardTab from './components/DashboardTab';
 import DatasetTab from './components/DatasetTab';
 import EDATab from './components/EDATab';
@@ -17,7 +18,7 @@ import {
 } from './api';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('landing');
   const [isHealthy, setIsHealthy] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [activeDataset, setActiveDataset] = useState('student_performance_pass_fail.csv');
@@ -100,6 +101,17 @@ export default function App() {
     getAtRiskStudents().then(setAtRiskData).catch(console.error);
   };
 
+  // If user is on landing page, display the dedicated full landing page view
+  if (activeTab === 'landing') {
+    return (
+      <LandingPage
+        onLaunchDashboard={() => setActiveTab('dashboard')}
+        onNavigateTab={(tab) => setActiveTab(tab)}
+      />
+    );
+  }
+
+  // Dashboard & Application Workspace View
   return (
     <div className="app-container">
       <Navbar

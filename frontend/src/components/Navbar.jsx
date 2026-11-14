@@ -8,7 +8,7 @@ import {
   Sparkles,
   AlertTriangle,
   FileText,
-  Activity
+  Home
 } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, activeDataset, bestModel, isHealthy }) {
@@ -25,7 +25,7 @@ export default function Navbar({ activeTab, setActiveTab, activeDataset, bestMod
   return (
     <header className="navbar">
       <div className="navbar-inner">
-        <div className="brand-section">
+        <div className="brand-section" onClick={() => setActiveTab('landing')} style={{ cursor: 'pointer' }}>
           <div className="brand-logo-badge">
             <GraduationCap size={26} strokeWidth={2.2} />
           </div>
@@ -36,6 +36,14 @@ export default function Navbar({ activeTab, setActiveTab, activeDataset, bestMod
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <button
+            className="btn btn-outline"
+            style={{ fontSize: '0.8rem', padding: '6px 12px', display: 'flex', alignItems: 'center', gap: '6px' }}
+            onClick={() => setActiveTab('landing')}
+          >
+            <Home size={14} /> Back to Landing Page
+          </button>
+
           {bestModel && (
             <div className="nav-status-badge" style={{ background: '#eff6ff', borderColor: '#bfdbfe', color: '#1d4ed8' }}>
               <BrainCircuit size={14} />
