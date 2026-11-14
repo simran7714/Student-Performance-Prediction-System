@@ -10,7 +10,7 @@ import {
   Eye,
   X
 } from 'lucide-react';
-import { getCsvReportUrl } from '../api';
+import { getCsvReportUrl, triggerBrowserCSVDownload } from '../api';
 
 export default function AtRiskTab({ atRiskData }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -34,6 +34,15 @@ export default function AtRiskTab({ atRiskData }) {
     return true;
   });
 
+  const handleExportCSV = (e) => {
+    e.preventDefault();
+    if (filteredStudents && filteredStudents.length > 0) {
+      triggerBrowserCSVDownload(filteredStudents, 'at_risk_students_roster.csv');
+    } else {
+      window.open(getCsvReportUrl(), '_blank');
+    }
+  };
+
   return (
     <div>
       {/* Overview Banner */}
@@ -48,9 +57,9 @@ export default function AtRiskTab({ atRiskData }) {
             </div>
           </div>
 
-          <a href={getCsvReportUrl()} className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '6px 12px' }} download>
+          <button onClick={handleExportCSV} className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '6px 12px' }}>
             <Download size={14} /> Export At-Risk CSV
-          </a>
+          </button>
         </div>
 
         {/* Stats Row */}

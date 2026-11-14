@@ -118,9 +118,21 @@ export default function DashboardTab({
           <button className="btn btn-outline" style={{ background: 'white', color: '#be123c', border: 'none' }} onClick={() => setActiveTab('predict')}>
             <Sparkles size={16} /> Predict Student
           </button>
-          <a href={getPdfReportUrl()} className="btn btn-primary" style={{ background: '#4c0519', border: 'none' }} target="_blank" rel="noreferrer">
+          <button
+            className="btn btn-primary"
+            style={{ background: '#4c0519', border: 'none' }}
+            onClick={(e) => {
+              e.preventDefault();
+              fetch(getPdfReportUrl(), { method: 'HEAD' })
+                .then(res => {
+                  if (res.ok) window.open(getPdfReportUrl(), '_blank');
+                  else window.print();
+                })
+                .catch(() => window.print());
+            }}
+          >
             <Download size={16} /> Academic PDF
-          </a>
+          </button>
         </div>
       </div>
 

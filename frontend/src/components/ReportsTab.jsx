@@ -11,7 +11,7 @@ import {
   Layers,
   ShieldAlert
 } from 'lucide-react';
-import { getPdfReportUrl, getCsvReportUrl, getSampleDownloadUrl } from '../api';
+import { getPdfReportUrl, getCsvReportUrl, triggerBrowserCSVDownload } from '../api';
 
 export default function ReportsTab({
   activeDataset,
@@ -22,6 +22,25 @@ export default function ReportsTab({
 }) {
   const handlePrint = () => {
     window.print();
+  };
+
+  const handleDownloadCSV = (e) => {
+    e.preventDefault();
+    if (atRiskData && atRiskData.students && atRiskData.students.length > 0) {
+      triggerBrowserCSVDownload(atRiskData.students, `student_predictions_${activeDataset || 'cohort'}.csv`);
+    } else {
+      window.open(getCsvReportUrl(), '_blank');
+    }
+  };
+
+  const handleDownloadPDF = (e) => {
+    e.preventDefault();
+    fetch(getPdfReportUrl(), { method: 'HEAD' })
+      .then(res => {
+        if (res.ok) window.open(getPdfReportUrl(), '_blank');
+        else window.print();
+      })
+      .catch(() => window.print());
   };
 
   const totalStudents = edaData?.total_records || prepSummary?.cleaned_rows || 0;
@@ -47,12 +66,12 @@ export default function ReportsTab({
             <button className="btn btn-outline" onClick={handlePrint}>
               <Printer size={16} /> Print View
             </button>
-            <a href={getCsvReportUrl()} className="btn btn-outline" download>
+            <button className="btn btn-outline" onClick={handleDownloadCSV}>
               <Download size={16} /> Export CSV
-            </a>
-            <a href={getPdfReportUrl()} className="btn btn-primary" style={{ background: 'linear-gradient(135deg, #f43f5e, #e11d48)' }} target="_blank" rel="noreferrer">
+            </button>
+            <button className="btn btn-primary" style={{ background: 'linear-gradient(135deg, #f43f5e, #e11d48)' }} onClick={handleDownloadPDF}>
               <Download size={16} /> Download Academic PDF Report
-            </a>
+            </button>
           </div>
         </div>
 
